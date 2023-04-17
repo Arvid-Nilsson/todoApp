@@ -1,26 +1,41 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  
+  <ul v-for="item in tasks" :key="item.message">
+    <li>
+      {{ item.message }}
+    </li>
+  </ul>
+
+  <form action="">
+    <input type="text" id="inputAdd">
+  </form>
+  
+  <button @click="addTask()">click</button>
+    
+
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return {
+      tasks: [{"id": 1, "message": "hej"}, {"id": 2, "message": "då"}]
+    }
+  },
+
+  methods:{
+    addTask(){
+      let x = document.getElementById("inputAdd").value
+      this.tasks.push({"id": this.tasks.length + 1, "message": x})
+    }
   }
+
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
