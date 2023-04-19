@@ -1,12 +1,14 @@
 <template>
   
   <ul v-for="item in tasks" :key="item.message">
+    
     <li>
 
       <p id="message">{{ item.message }}</p> 
       <button @click="removeTask(item.id)" id="removeButton">remove</button>
 
     </li>
+
   </ul>
 
   <form action="">
